@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 9f0aad8660153bc4abdce09fa8afe8b6
+guid: 659afea6704146d4e8f6782e207f43c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7110507099626071053
-    second: mike_bandit_run_left_0
+      213: -1369074342976353715
+    second: mike_attack_0
   - first:
-      213: -8381654032247414006
-    second: mike_bandit_run_left_1
+      213: -6955075746447570722
+    second: mike_attack_1
   - first:
-      213: 3490364778648347921
-    second: mike_bandit_run_left_2
+      213: 6217315656804750239
+    second: mike_attack_2
   - first:
-      213: 4963264548990254825
-    second: mike_bandit_run_left_3
+      213: 5892046835115937709
+    second: mike_attack_3
   - first:
-      213: 8281804949906419493
-    second: mike_bandit_run_left_4
+      213: -4896236083185647087
+    second: mike_attack_4
   - first:
-      213: 5986024513709766629
-    second: mike_bandit_run_left_5
-  - first:
-      213: -5831735357762079717
-    second: mike_bandit_run_left_6
-  - first:
-      213: -8622855375546005917
-    second: mike_bandit_run_left_7
+      213: -4407696226591375411
+    second: mike_attack_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mike_bandit_run_left_0
+      name: mike_attack_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 3
-        width: 32
-        height: 75
+        x: 1
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fb15e94777625d90800000000000000
-      internalID: -7110507099626071053
+      spriteID: d4a0bc38322100de0800000000000000
+      internalID: -1369074342976353715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_run_left_1
+      name: mike_attack_1
       rect:
         serializedVersion: 2
-        x: 104
-        y: 4
-        width: 32
-        height: 74
+        x: 69
+        y: 0
+        width: 36
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a032ca9c0126eab80800000000000000
-      internalID: -8381654032247414006
+      spriteID: ed8ce0b457b9a7f90800000000000000
+      internalID: -6955075746447570722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_run_left_2
+      name: mike_attack_2
       rect:
         serializedVersion: 2
-        x: 173
-        y: 5
-        width: 40
-        height: 73
+        x: 143
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 115aedff544407030800000000000000
-      internalID: 3490364778648347921
+      spriteID: f93525c26a7584650800000000000000
+      internalID: 6217315656804750239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_run_left_3
+      name: mike_attack_3
       rect:
         serializedVersion: 2
-        x: 252
-        y: 3
-        width: 29
-        height: 75
+        x: 209
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +198,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ee7ad09fce01e440800000000000000
-      internalID: 4963264548990254825
+      spriteID: dafcc0f0161c4c150800000000000000
+      internalID: 5892046835115937709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_run_left_4
+      name: mike_attack_4
       rect:
         serializedVersion: 2
-        x: 325
-        y: 4
-        width: 35
-        height: 74
+        x: 277
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,20 +219,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52f6e3a19b1eee270800000000000000
-      internalID: 8281804949906419493
+      spriteID: 112054549331d0cb0800000000000000
+      internalID: -4896236083185647087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_run_left_5
+      name: mike_attack_5
       rect:
         serializedVersion: 2
-        x: 400
-        y: 4
-        width: 40
-        height: 74
+        x: 360
+        y: 0
+        width: 39
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,50 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e773747491a21350800000000000000
-      internalID: 5986024513709766629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_bandit_run_left_6
-      rect:
-        serializedVersion: 2
-        x: 482
-        y: 5
-        width: 42
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1471880793811fa0800000000000000
-      internalID: -5831735357762079717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_bandit_run_left_7
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 5
-        width: 40
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3664307c8b6755880800000000000000
-      internalID: -8622855375546005917
+      spriteID: dcff03882a7b4d2c0800000000000000
+      internalID: -4407696226591375411
       vertices: []
       indices: 
       edges: []
@@ -297,7 +249,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: bc475fa1efa6c5e43896ec620fa0f2db
+    spriteID: 2a0552316de09bc4bba3aea201f6fc2c
     internalID: 0
     vertices: []
     indices: 

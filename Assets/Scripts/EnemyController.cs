@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
         Player = GameObject.Find("character");
         currentHealth = maxHealth;
         Physics.IgnoreLayerCollision(7, 3);
+
     }
 
     void Update()
@@ -87,14 +88,20 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Stick" && col.GetComponent<SticksController>().getState() != SticksController.State.WithPlayer)
+        if (col.gameObject.name == "Stick" && col.gameObject.GetComponent<SticksController>().getState() != SticksController.State.WithPlayer)
         {
             this.TakeDamage(10);
+        }
+        else if (col.gameObject.name.Contains("Bullet"))
+        {
+            this.TakeDamage(30);
+            col.gameObject.GetComponent<BulletController>().Remove();
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
+      
         Vector3 normal = collision.GetContact(0).normal;
 
         if (normal == transform.forward)

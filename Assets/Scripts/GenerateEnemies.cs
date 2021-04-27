@@ -14,10 +14,10 @@ public class GenerateEnemies : MonoBehaviour
     {
         StartCoroutine(EnemyDrop());
     }
-
+    
     IEnumerator EnemyDrop()
     {
-        while (enemyCount < 1)
+        while (enemyCount < 0)
         {
             Vector3 v3Pos = Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.5f, 13.0f));
             enemy.layer = 7;

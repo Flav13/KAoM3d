@@ -1,121 +1,255 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    // movement
+    Vector2 movementInput;
+    Vector3 inputVector;
+
+    // components
     public Rigidbody rb;
     public CapsuleCollider collider;
     public HealthBar healthBar;
-
     public Animator animator;
 
+    // layers 
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
 
+    // weapons
     public GameObject sticks;
+    public GameObject bullet;
     SticksController sticksController;
 
+    //bools
     public bool face_left = false;
     public bool is_attacking = false;
     public bool is_crouching = false; 
     public bool is_dead = false;
     public bool is_hurt = false;
+    public bool is_jumping = false;
 
-    Vector3 inputVector;
+    bool hasFallen = false;
+
+    // vars
     int currentHealth;
     float currentColHeight;
     Vector3 currentColCenter;
+    Vector2 moveDirection;
+    Vector2 shootLocation;
+    int currentCharacter;
 
-    float speed = 7f;
-    float jump_force = 8f;
+    // constants 
+    float jumpForce = 8f;
+    float walkSpeed = 7f;
     int maxHealth = 100;
     //int attackDamage = 40;
 
-    bool attack_running;
-    bool hasFallen = false;
-
+    Dictionary<string, int> characterMap = 
+        new Dictionary<string, int>()
+        { {"Mike", 0}, {"Henry", 1}, {"Flav", 2} };
 
     void Start()
     {
         Physics.IgnoreLayerCollision(3, 7);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth();
+        currentCharacter = characterMap["Mike"];
+
         currentColHeight = collider.height;
         currentColCenter = collider.center;
 
         sticksController = sticks.GetComponent<SticksController>();
+
     }
 
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
+        float h = movementInput.x;
+        float v = movementInput.y;
+
         float y = rb.velocity.y;
         bool is_grounded = isGrounded();
 
 
-        if (Input.GetKeyDown(KeyCode.X) && is_grounded)
+        if (is_crouching && is_grounded)
         {
-            is_crouching = true;
-            rb.velocity = Vector3.zero;
-            collider.height = 1.8f;
-            collider.center = new Vector3(currentColCenter.x,- 0.65f, currentColCenter.z);
+           rb.velocity = Vector3.zero;
+           collider.height = 1.8f;
+           collider.center = new Vector3(currentColCenter.x, -0.65f, currentColCenter.z);
         }
 
         if (!is_crouching)
         {
-            inputVector = new Vector3(x * speed, y, Input.GetAxisRaw("Vertical") * speed);
-            rb.velocity = inputVector;
+            Move(moveDirection, y);
+            collider.height = currentColHeight;
+            collider.center = currentColCenter;
         }
 
-        if (Input.GetAxis("Horizontal") > 0 && face_left)
+        if (moveDirection.x > 0 && face_left)
         {
             Flip();
         }
-        else if (Input.GetAxis("Horizontal") < 0 && !face_left)
+        else if (moveDirection.x < 0 && !face_left)
         {
             Flip();
         }
 
-        if (is_grounded && Input.GetKeyDown(KeyCode.Space))
+        if (is_grounded && is_jumping)
         {
-            rb.AddForce(Vector3.up * jump_force, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            is_jumping = false;
         }
-
         if (y <= -15 && !hasFallen && !is_grounded)
         {
             // I've fallen and I can get up. 
-            rb.AddForce(Vector3.up * jump_force*4, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce*4, ForceMode.Impulse);
             hasFallen = true;
             this.TakeDamage(currentHealth);
-
         }
-        if (is_grounded)
+        if (y > -15)
         {
             hasFallen = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z) && !attack_running && sticksController.withPlayer())
-        {
-            is_attacking = true;
-            StartCoroutine(AttackWait());
-            StartCoroutine(SpinSticks());
-
-        }
-        else if (Input.GetKeyUp(KeyCode.Z))
-        {
-            is_attacking = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.X))
-        {
-            is_crouching = false;
-            collider.height = currentColHeight;
-            collider.center = currentColCenter;
         }
 
         animator.SetFloat("speed", rb.velocity.magnitude);
         animator.SetBool("is_attacking", is_attacking);
         animator.SetBool("is_crouching", is_crouching);
+    }
+
+    void Move(Vector2 moveDirection, float y)
+    {        
+        inputVector = new Vector3(moveDirection.x * walkSpeed, y, moveDirection.y * walkSpeed);
+        rb.velocity = inputVector;
+    }
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        moveDirection = context.ReadValue<Vector2>();
+    }
+
+    public void onAttack(InputAction.CallbackContext context)
+    {
+        if (currentCharacter == characterMap["Henry"])
+        {
+            if (context.started)
+            {
+                GameObject bTransform = Instantiate(bullet, transform.position, Quaternion.identity);           
+                bTransform.GetComponent<BulletController>().Setup(shootLocation);
+            }
+        }
+        else if (currentCharacter == characterMap["Mike"])
+        {
+
+            if (context.performed)
+            {
+                if (!is_attacking)
+                {
+                    StartCoroutine(throwSticks());
+                   
+                }
+                is_attacking = true;
+
+            }
+            else if (context.canceled)
+            {
+                is_attacking = false;
+               // Destroy(sticks);
+            }
+        }
+        else if (currentCharacter == characterMap["Flav"])
+        {
+            if (context.started)
+            {
+                Collider[] hitEnemies = Physics.OverlapSphere(transform.position, 3.5f, enemyLayer);
+
+                foreach (Collider enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(10);
+                }
+            }
+        }
+    }
+
+    IEnumerator throwSticks()
+    {
+        yield return new WaitForSeconds(0.6f);
+        sticks.GetComponent<Renderer>().enabled = true;
+
+      //  sticks.SetActive(true);
+        sticksController.StartSpin();
+
+    }
+
+    public void onCrouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            is_crouching = true;
+        if (context.canceled)
+            is_crouching = false;
+    }
+
+    public void onSwitch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (currentCharacter < 2)
+            {
+                currentCharacter++;
+            }
+            else
+            {
+                currentCharacter = characterMap["Mike"];
+            }
+        }
+    }
+
+    public void onJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            is_jumping = true;
+        if (context.canceled)
+            is_jumping = false;
+    }
+
+    public void onAim(InputAction.CallbackContext context)
+    {
+        shootLocation = context.ReadValue<Vector2>();
+        float maxY = 907.0f;
+        float maxX = 1609.0f;
+
+        if (Gamepad.current != null)
+        {
+
+            if (shootLocation.x < 0)
+            {
+                shootLocation.x = shootLocation.x * maxX;
+            }
+            else if (shootLocation.x == 0)
+            {
+                shootLocation.x = maxX / 2;
+            }
+            else
+            {
+                shootLocation.x = shootLocation.x * maxX;
+            }
+            if (shootLocation.y < 0)
+            {
+                shootLocation.y = shootLocation.y * maxY;
+            }
+            else if (shootLocation.y == 0)
+            {
+                shootLocation.y = maxY;
+            }
+            else
+            {
+                shootLocation.y = shootLocation.y * maxY;
+            }
+        }
+
     }
 
     void Flip()
@@ -126,26 +260,8 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
 
         sticksController.Flip();
-        
-    }
 
-    IEnumerator AttackWait()
-    {
-        attack_running = true;
-        yield return new WaitForSeconds(0.15f);
-        attack_running = false;
-
-        sticksController.setState(SticksController.State.Recalling);
-    }
-
-    IEnumerator SpinSticks()
-    {
-        sticksController.setState(SticksController.State.Thrown);
-        sticksController.setSpin(true);
-
-        yield return new WaitForSeconds(0.5f);
-
-        sticksController.setSpin(false);
+      
     }
 
     public bool isGrounded()

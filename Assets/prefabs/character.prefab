@@ -127,13 +127,13 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  sticks: []
-  attackRange: 70
+  sticks: {fileID: 0}
   face_left: 0
   is_attacking: 0
   is_crouching: 0
   is_dead: 0
   is_hurt: 0
+  is_jumping: 0
 --- !u!54 &2563312544363030043
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: 2e8326d3d55546149a0d09c21813da42
+guid: aef62d2c1345b9841a9d0f066fc1799b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1938000673895667072
-    second: mike_bandit_left_0
+      213: 4316661423836178492
+    second: mike_walk_attack_sticks_0
   - first:
-      213: -7287943331759006348
-    second: mike_bandit_left_1
+      213: -3817294578772106853
+    second: mike_walk_attack_sticks_1
   - first:
-      213: -4786911155557992925
-    second: mike_bandit_left_2
+      213: 524589127260991249
+    second: mike_walk_attack_sticks_2
   - first:
-      213: 772488464815006464
-    second: mike_bandit_left_3
+      213: 5394649961147589717
+    second: mike_walk_attack_sticks_3
   - first:
-      213: -5090019329987193179
-    second: mike_bandit_left_4
+      213: 1574290350846590699
+    second: mike_walk_attack_sticks_4
   - first:
-      213: -6821571504506271362
-    second: mike_bandit_left_5
+      213: -9200108897522284878
+    second: mike_walk_attack_sticks_5
+  - first:
+      213: -3850978870219971371
+    second: mike_walk_attack_sticks_6
+  - first:
+      213: 7387346793891267646
+    second: mike_walk_attack_sticks_7
+  - first:
+      213: 6772099134477064656
+    second: mike_walk_attack_sticks_8
+  - first:
+      213: 8473497025445072624
+    second: mike_walk_attack_sticks_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,127 +133,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mike_bandit_left_0
+      name: mike_walk_attack_sticks_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 2
-        width: 51
-        height: 76
+        x: 0
+        y: 0
+        width: 63
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08a2bf1b7a6da15e0800000000000000
-      internalID: -1938000673895667072
+      spriteID: c38236fb1bcd7eb30800000000000000
+      internalID: 4316661423836178492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_left_1
+      name: mike_walk_attack_sticks_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 2
-        width: 52
-        height: 76
+        x: 59
+        y: 1
+        width: 68
+        height: 99
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47dd35727260cda90800000000000000
-      internalID: -7287943331759006348
+      spriteID: b91a3453ece360bc0800000000000000
+      internalID: -3817294578772106853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_left_2
+      name: mike_walk_attack_sticks_2
       rect:
         serializedVersion: 2
-        x: 180
-        y: 2
-        width: 52
-        height: 76
+        x: 140
+        y: 0
+        width: 66
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3267c998aa9719db0800000000000000
-      internalID: -4786911155557992925
+      spriteID: 11f6c672807b74700800000000000000
+      internalID: 524589127260991249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_left_3
+      name: mike_walk_attack_sticks_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 2
-        width: 52
-        height: 76
+        x: 206
+        y: 0
+        width: 68
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 003a26a7a2e68ba00800000000000000
-      internalID: 772488464815006464
+      spriteID: 554e6cdbe85adda40800000000000000
+      internalID: 5394649961147589717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_left_4
+      name: mike_walk_attack_sticks_4
       rect:
         serializedVersion: 2
-        x: 328
-        y: 2
-        width: 54
-        height: 76
+        x: 279
+        y: 0
+        width: 68
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a6dd30336e9c59b0800000000000000
-      internalID: -5090019329987193179
+      spriteID: bee398fabb009d510800000000000000
+      internalID: 1574290350846590699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_bandit_left_5
+      name: mike_walk_attack_sticks_5
       rect:
         serializedVersion: 2
-        x: 398
-        y: 2
-        width: 54
-        height: 76
+        x: 357
+        y: 0
+        width: 68
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e790affdbd8e451a0800000000000000
-      internalID: -6821571504506271362
+      spriteID: 2b60644b3b5a25080800000000000000
+      internalID: -9200108897522284878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_walk_attack_sticks_8
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 68
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d95c3e58445bfd50800000000000000
+      internalID: 6772099134477064656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_walk_attack_sticks_9
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 68
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe8bfe66a8e79570800000000000000
+      internalID: 8473497025445072624
       vertices: []
       indices: 
       edges: []
@@ -249,7 +303,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 30e67f42b12aa504792dda0acb03fbdd
+    spriteID: ed3a5c13e7e24e345a1904eb17fba3e1
     internalID: 0
     vertices: []
     indices: 
