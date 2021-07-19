@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: c4017924bb799bc41be6c378fd4dae77
+guid: d062c19e29ee6c5479bc180712d098ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4902544767053317792
-    second: Axe Bandit Attack_0
+      213: 5471975704589132341
+    second: mike_death_0
   - first:
-      213: -4984983653424317860
-    second: Axe Bandit Attack_1
+      213: -1747317684094206377
+    second: mike_death_1
   - first:
-      213: -6762105971231176870
-    second: Axe Bandit Attack_2
+      213: 8077381511725226220
+    second: mike_death_2
   - first:
-      213: -5163877311745917891
-    second: Axe Bandit Attack_3
+      213: 7648068318318960628
+    second: mike_death_3
   - first:
-      213: -1547676665278943098
-    second: Axe Bandit Attack_4
-  - first:
-      213: -8957388439073457352
-    second: Axe Bandit Attack_5
-  - first:
-      213: -3272697829292004854
-    second: Axe Bandit Attack_6
-  - first:
-      213: 3871628928704030960
-    second: Axe Bandit Attack_7
-  - first:
-      213: 8984972820833645304
-    second: Axe Bandit Attack_8
+      213: -8969227674512953619
+    second: mike_death_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,190 +118,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Axe Bandit Attack_0
+      name: mike_death_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 3
-        width: 47
-        height: 62
+        x: 28
+        y: 0
+        width: 63
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06936585289a6fbb0800000000000000
-      internalID: -4902544767053317792
+      spriteID: 5326a9b59ec50fb40800000000000000
+      internalID: 5471975704589132341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack_1
+      name: mike_death_1
       rect:
         serializedVersion: 2
-        x: 104
-        y: 3
-        width: 49
-        height: 62
+        x: 150
+        y: 0
+        width: 63
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5ab38e57c7c1dab0800000000000000
-      internalID: -4984983653424317860
+      spriteID: 75e7ec1f2d740c7e0800000000000000
+      internalID: -1747317684094206377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack_2
+      name: mike_death_2
       rect:
         serializedVersion: 2
-        x: 170
-        y: 3
-        width: 4
-        height: 4
+        x: 277
+        y: 0
+        width: 63
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a57c733427c2822a0800000000000000
-      internalID: -6762105971231176870
+      spriteID: ce890b960bf981070800000000000000
+      internalID: 8077381511725226220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack_3
+      name: mike_death_3
       rect:
         serializedVersion: 2
-        x: 176
-        y: 3
-        width: 52
-        height: 72
+        x: 408
+        y: 0
+        width: 63
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c7fa1c1f83658b0800000000000000
-      internalID: -5163877311745917891
+      spriteID: 4ff12534d95632a60800000000000000
+      internalID: 7648068318318960628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack_4
+      name: mike_death_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 3
-        width: 54
-        height: 58
+        x: 527
+        y: 0
+        width: 88
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68033ead54c858ae0800000000000000
-      internalID: -1547676665278943098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack_5
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 3
-        width: 49
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83bf5d54ca6f0b380800000000000000
-      internalID: -8957388439073457352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack_6
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 3
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0aabdbe9aa0592d0800000000000000
-      internalID: -3272697829292004854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack_7
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 3
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f8a7857ff9cab530800000000000000
-      internalID: 3871628928704030960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack_8
-      rect:
-        serializedVersion: 2
-        x: 449
-        y: 3
-        width: 59
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f234561d2901bc70800000000000000
-      internalID: 8984972820833645304
+      spriteID: dee6d0773f6e68380800000000000000
+      internalID: -8969227674512953619
       vertices: []
       indices: 
       edges: []
@@ -321,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c9a4eded0525e644893247954ceb7c25
+    spriteID: 70b437dbce9e3b04d887d2089681ed8a
     internalID: 0
     vertices: []
     indices: 

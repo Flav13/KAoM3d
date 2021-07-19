@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 584642387220b7f49bfa65e9c0510007
+guid: 028340afb5e6be545965e9e8775c7597
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1212999926211627718
-    second: Axe Bandit Attack Left_0
+      213: 9063502967941689123
+    second: flav_attack_0
   - first:
-      213: 5836045168036847178
-    second: Axe Bandit Attack Left_1
+      213: 6630547060834619223
+    second: flav_attack_1
   - first:
-      213: 6805775130201926876
-    second: Axe Bandit Attack Left_2
+      213: 8114619367229468811
+    second: flav_attack_2
   - first:
-      213: 3695705990023682526
-    second: Axe Bandit Attack Left_3
-  - first:
-      213: -180255911761285590
-    second: Axe Bandit Attack Left_4
-  - first:
-      213: 3308089643354556659
-    second: Axe Bandit Attack Left_5
-  - first:
-      213: -829874166124056640
-    second: Axe Bandit Attack Left_6
-  - first:
-      213: -802287993334856660
-    second: Axe Bandit Attack Left_7
+      213: -2812430880923834577
+    second: flav_attack_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,169 +115,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Axe Bandit Attack Left_0
+      name: flav_attack_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 3
-        width: 47
-        height: 62
+        x: 0
+        y: 0
+        width: 153
+        height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a35b49d6efe8a2fe0800000000000000
-      internalID: -1212999926211627718
+      spriteID: 32fecd8cde708cd70800000000000000
+      internalID: 9063502967941689123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack Left_1
+      name: flav_attack_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 3
-        width: 49
-        height: 62
+        x: 155
+        y: 0
+        width: 145
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4e98fdd82ccdf050800000000000000
-      internalID: 5836045168036847178
+      spriteID: 75fce83fb6f640c50800000000000000
+      internalID: 6630547060834619223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack Left_2
+      name: flav_attack_2
       rect:
         serializedVersion: 2
-        x: 164
-        y: 3
-        width: 52
-        height: 72
+        x: 303
+        y: 0
+        width: 163
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdcafd02c68f27e50800000000000000
-      internalID: 6805775130201926876
+      spriteID: b80b737425bec9070800000000000000
+      internalID: 8114619367229468811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Axe Bandit Attack Left_3
+      name: flav_attack_4
       rect:
         serializedVersion: 2
-        x: 218
-        y: 3
-        width: 4
-        height: 4
+        x: 468
+        y: 0
+        width: 172
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed915a96409c94330800000000000000
-      internalID: 3695705990023682526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack Left_4
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 3
-        width: 54
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2eedca043a9f7df0800000000000000
-      internalID: -180255911761285590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack Left_5
-      rect:
-        serializedVersion: 2
-        x: 319
-        y: 3
-        width: 49
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f80c4de002b8ed20800000000000000
-      internalID: 3308089643354556659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack Left_6
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 3
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cfe6efb7d1bb74f0800000000000000
-      internalID: -829874166124056640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Axe Bandit Attack Left_7
-      rect:
-        serializedVersion: 2
-        x: 467
-        y: 3
-        width: 63
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2407bd1253bdd4f0800000000000000
-      internalID: -802287993334856660
+      spriteID: f272233c30d38f8d0800000000000000
+      internalID: -2812430880923834577
       vertices: []
       indices: 
       edges: []
@@ -297,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: abea63efc0f51854898bae2b328a1c6f
+    spriteID: 8f3f1b4e7734677418686068552bae19
     internalID: 0
     vertices: []
     indices: 

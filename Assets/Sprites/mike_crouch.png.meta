@@ -5,6 +5,18 @@ TextureImporter:
   - first:
       213: 1316379128058126603
     second: mike_crouch_0
+  - first:
+      213: 9168474685642133364
+    second: mike_crouch_1
+  - first:
+      213: -5826942619488112327
+    second: mike_crouch_2
+  - first:
+      213: 3955173975086162893
+    second: mike_crouch_3
+  - first:
+      213: -1831217489073253778
+    second: mike_crouch_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,10 +121,10 @@ TextureImporter:
       name: mike_crouch_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 5
-        width: 48
-        height: 73
+        x: 24
+        y: 0
+        width: 50
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,6 +134,90 @@ TextureImporter:
       bones: []
       spriteID: b01a4ada7d7b44210800000000000000
       internalID: 1316379128058126603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_crouch_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f4cd16627fc3f70800000000000000
+      internalID: 9168474685642133364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_crouch_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931b3de5f8a822fa0800000000000000
+      internalID: -5826942619488112327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_crouch_3
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 0
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc361e166c993e630800000000000000
+      internalID: 3955173975086162893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mike_crouch_4
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 0
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e625e4955653696e0800000000000000
+      internalID: -1831217489073253778
       vertices: []
       indices: 
       edges: []

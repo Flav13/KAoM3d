@@ -1,0 +1,44 @@
+{
+    "name": "PlayerSwi",
+    "maps": [
+        {
+            "name": "PlayerSwitch",
+            "id": "2f7b58bf-c451-42bb-8357-4fc38c88f319",
+            "actions": [
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "88a7f569-7d0e-48bc-b88e-dfb7d0b8f0e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "32f1ad35-56e2-4e44-a211-47f9ce2eb43c",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6432b0f1-c448-4e6d-808e-a0050e73dbec",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

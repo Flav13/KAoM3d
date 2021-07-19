@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: aef62d2c1345b9841a9d0f066fc1799b
+guid: d697673294808cc4d861ab6a410f4e9d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4316661423836178492
-    second: mike_walk_attack_sticks_0
+      213: -3062580479667104122
+    second: mike_idle_attack_0
   - first:
-      213: -3817294578772106853
-    second: mike_walk_attack_sticks_1
+      213: -5649491176962543439
+    second: mike_idle_attack_1
   - first:
-      213: 524589127260991249
-    second: mike_walk_attack_sticks_2
+      213: 4847658455546395316
+    second: mike_idle_attack_2
   - first:
-      213: 5394649961147589717
-    second: mike_walk_attack_sticks_3
+      213: 7795238306179733117
+    second: mike_idle_attack_3
   - first:
-      213: 1574290350846590699
-    second: mike_walk_attack_sticks_4
+      213: 1891552414715623106
+    second: mike_idle_attack_4
   - first:
-      213: -9200108897522284878
-    second: mike_walk_attack_sticks_5
+      213: -6516264825086100545
+    second: mike_idle_attack_5
   - first:
-      213: -3850978870219971371
-    second: mike_walk_attack_sticks_6
+      213: 5044630383921818508
+    second: mike_idle_attack_6
   - first:
-      213: 7387346793891267646
-    second: mike_walk_attack_sticks_7
+      213: 5657198279847384430
+    second: mike_idle_attack_7
   - first:
-      213: 6772099134477064656
-    second: mike_walk_attack_sticks_8
+      213: 2289822847956517591
+    second: mike_idle_attack_8
   - first:
-      213: 8473497025445072624
-    second: mike_walk_attack_sticks_9
+      213: -5196251893871123500
+    second: mike_idle_attack_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,12 +133,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_0
+      name: mike_idle_attack_0
       rect:
         serializedVersion: 2
-        x: 36
+        x: 24
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -147,19 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c38236fb1bcd7eb30800000000000000
-      internalID: 4316661423836178492
+      spriteID: 686956da7478f75d0800000000000000
+      internalID: -3062580479667104122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_1
+      name: mike_idle_attack_1
       rect:
         serializedVersion: 2
-        x: 154
+        x: 107
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,19 +168,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91a3453ece360bc0800000000000000
-      internalID: -3817294578772106853
+      spriteID: 1b0b173f4b9f891b0800000000000000
+      internalID: -5649491176962543439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_2
+      name: mike_idle_attack_2
       rect:
         serializedVersion: 2
-        x: 277
+        x: 175
         y: 0
-        width: 44
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -189,19 +189,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11f6c672807b74700800000000000000
-      internalID: 524589127260991249
+      spriteID: 4baf24b6ea7564340800000000000000
+      internalID: 4847658455546395316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_3
+      name: mike_idle_attack_3
       rect:
         serializedVersion: 2
-        x: 392
+        x: 246
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -210,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 554e6cdbe85adda40800000000000000
-      internalID: 5394649961147589717
+      spriteID: d765c5340ff3e2c60800000000000000
+      internalID: 7795238306179733117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_4
+      name: mike_idle_attack_4
       rect:
         serializedVersion: 2
-        x: 496
+        x: 318
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -231,19 +231,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bee398fabb009d510800000000000000
-      internalID: 1574290350846590699
+      spriteID: 2c6382936e4204a10800000000000000
+      internalID: 1891552414715623106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_5
+      name: mike_idle_attack_5
       rect:
         serializedVersion: 2
-        x: 589
+        x: 391
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -252,19 +252,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b60644b3b5a25080800000000000000
-      internalID: -9200108897522284878
+      spriteID: fbbbe5e8aa39195a0800000000000000
+      internalID: -6516264825086100545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_8
+      name: mike_idle_attack_8
       rect:
         serializedVersion: 2
-        x: 700
+        x: 480
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -273,19 +273,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d95c3e58445bfd50800000000000000
-      internalID: 6772099134477064656
+      spriteID: 7d2850b8fb517cf10800000000000000
+      internalID: 2289822847956517591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_9
+      name: mike_idle_attack_9
       rect:
         serializedVersion: 2
-        x: 800
+        x: 567
         y: 0
-        width: 45
+        width: 42
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -294,8 +294,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fe8bfe66a8e79570800000000000000
-      internalID: 8473497025445072624
+      spriteID: 4d36c56fe6433e7b0800000000000000
+      internalID: -5196251893871123500
       vertices: []
       indices: 
       edges: []
@@ -303,7 +303,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ed3a5c13e7e24e345a1904eb17fba3e1
+    spriteID: d083a76d4f3394441944457a52dda2c6
     internalID: 0
     vertices: []
     indices: 

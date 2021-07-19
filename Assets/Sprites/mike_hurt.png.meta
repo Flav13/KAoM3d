@@ -127,12 +127,12 @@ TextureImporter:
       name: mike_hurt_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 51
-        height: 67
+        x: 1
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: mike_hurt_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 2
-        width: 52
-        height: 67
+        x: 59
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: mike_hurt_2
       rect:
         serializedVersion: 2
-        x: 146
-        y: 2
-        width: 52
-        height: 72
+        x: 119
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: mike_hurt_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 2
-        width: 57
-        height: 72
+        x: 187
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: mike_hurt_4
       rect:
         serializedVersion: 2
-        x: 274
-        y: 2
-        width: 49
-        height: 72
+        x: 252
+        y: 0
+        width: 38
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,48 +224,6 @@ TextureImporter:
       bones: []
       spriteID: 66d0b64fa9c05a360800000000000000
       internalID: 7180159040577277286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_hurt_5
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 2
-        width: 54
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dc9a7ddd4800bce0800000000000000
-      internalID: -1391603154336178991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_hurt_6
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 2
-        width: 54
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e973b457dd01f9130800000000000000
-      internalID: 3575595172497143710
       vertices: []
       indices: 
       edges: []

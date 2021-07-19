@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     float jump_force = 8f;
     int maxHealth = 100;
     float MinDist = 1.5f;
-    int attackDamage = 50;
+    int attackDamage = 200;
 
     bool attack_running;
 
@@ -94,7 +94,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (col.gameObject.name.Contains("Bullet"))
         {
-            this.TakeDamage(30);
+            this.TakeDamage(5);
             col.gameObject.GetComponent<BulletController>().Remove();
         }
     }

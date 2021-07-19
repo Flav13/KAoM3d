@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     Vector3 shootDir;
+    Camera mainCamera;
 
     public Rigidbody rb;
     float moveSpeed = 0.1f;
@@ -12,11 +13,11 @@ public class BulletController : MonoBehaviour
 
     public void Setup(Vector2 shootLocation)
     {
-        Camera mainCamera = GameObject.FindObjectOfType<Camera>();
+        mainCamera = GameObject.FindObjectOfType<Camera>();
 
         Vector3 shootDirection = mainCamera.ScreenToWorldPoint(new Vector3(shootLocation.x, shootLocation.y, transform.position.z));
         shootDirection.z = transform.position.z;
-        Debug.Log(shootDirection);
+
         this.shootDir = (shootDirection - transform.position).normalized;
         Destroy(gameObject, 5f);
     }

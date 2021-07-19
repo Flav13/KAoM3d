@@ -1,37 +1,22 @@
 fileFormatVersion: 2
-guid: aef62d2c1345b9841a9d0f066fc1799b
+guid: 9eedfa5a14bda3849bd01e3d2f274561
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4316661423836178492
-    second: mike_walk_attack_sticks_0
+      213: 7240406122289389912
+    second: flav_idle_0
   - first:
-      213: -3817294578772106853
-    second: mike_walk_attack_sticks_1
+      213: -992008363130337837
+    second: flav_idle_1
   - first:
-      213: 524589127260991249
-    second: mike_walk_attack_sticks_2
+      213: -8123480261360713217
+    second: flav_idle_2
   - first:
-      213: 5394649961147589717
-    second: mike_walk_attack_sticks_3
+      213: 4355732318196412931
+    second: flav_idle_3
   - first:
-      213: 1574290350846590699
-    second: mike_walk_attack_sticks_4
-  - first:
-      213: -9200108897522284878
-    second: mike_walk_attack_sticks_5
-  - first:
-      213: -3850978870219971371
-    second: mike_walk_attack_sticks_6
-  - first:
-      213: 7387346793891267646
-    second: mike_walk_attack_sticks_7
-  - first:
-      213: 6772099134477064656
-    second: mike_walk_attack_sticks_8
-  - first:
-      213: 8473497025445072624
-    second: mike_walk_attack_sticks_9
+      213: -3871139454815619938
+    second: flav_idle_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -67,7 +52,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -133,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_0
+      name: flav_idle_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 45
-        height: 100
+        x: 67
+        y: 31
+        width: 49
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c38236fb1bcd7eb30800000000000000
-      internalID: 4316661423836178492
+      spriteID: 8516f94c1071b7460800000000000000
+      internalID: 7240406122289389912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_1
+      name: flav_idle_1
       rect:
         serializedVersion: 2
-        x: 154
-        y: 0
-        width: 45
-        height: 100
+        x: 126
+        y: 31
+        width: 49
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91a3453ece360bc0800000000000000
-      internalID: -3817294578772106853
+      spriteID: 3d5466d46adab32f0800000000000000
+      internalID: -992008363130337837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_2
+      name: flav_idle_2
       rect:
         serializedVersion: 2
-        x: 277
-        y: 0
-        width: 44
-        height: 100
+        x: 186
+        y: 31
+        width: 49
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11f6c672807b74700800000000000000
-      internalID: 524589127260991249
+      spriteID: ff182b90eb9934f80800000000000000
+      internalID: -8123480261360713217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_walk_attack_sticks_3
+      name: flav_idle_3
       rect:
         serializedVersion: 2
-        x: 392
-        y: 0
-        width: 45
-        height: 100
+        x: 254
+        y: 31
+        width: 49
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,92 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 554e6cdbe85adda40800000000000000
-      internalID: 5394649961147589717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_walk_attack_sticks_4
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 0
-        width: 45
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bee398fabb009d510800000000000000
-      internalID: 1574290350846590699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_walk_attack_sticks_5
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 0
-        width: 45
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b60644b3b5a25080800000000000000
-      internalID: -9200108897522284878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_walk_attack_sticks_8
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 45
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d95c3e58445bfd50800000000000000
-      internalID: 6772099134477064656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_walk_attack_sticks_9
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 45
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fe8bfe66a8e79570800000000000000
-      internalID: 8473497025445072624
+      spriteID: 30239ca377ba27c30800000000000000
+      internalID: 4355732318196412931
       vertices: []
       indices: 
       edges: []
@@ -303,7 +204,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ed3a5c13e7e24e345a1904eb17fba3e1
+    spriteID: becdd333a92633e46880ec1334d451a8
     internalID: 0
     vertices: []
     indices: 

@@ -14,8 +14,12 @@ public class SticksController : MonoBehaviour
     public Transform playerPos;
 
     // bools
-    bool attack_running;
     bool faceLeft = false;
+
+    Vector3 throwDirection;
+    Camera mainCamera;
+    Vector3 playerSpeed;
+    Vector3 throwingPosition;
 
     public State state;
     public enum State 
@@ -27,13 +31,12 @@ public class SticksController : MonoBehaviour
 
     void Start()
     {
-        attack_running = false;
+        mainCamera = GameObject.FindObjectOfType<Camera>();
+
         isSpinning = false;
         state = State.WithPlayer;
         transform.position = playerPos.position;
         transform.Translate(1, 0, 0);
-
-
     }
 
     void FixedUpdate()
@@ -42,6 +45,7 @@ public class SticksController : MonoBehaviour
 
         if (state==State.Thrown)
         {
+            GetComponent<Renderer>().enabled = true;
             throwStick();
         }
         else if (state == State.Recalling)
@@ -49,9 +53,8 @@ public class SticksController : MonoBehaviour
             recallStick();
             
         }
-        else if (state == State.WithPlayer)
+        if (state == State.WithPlayer)
         {
-            attack_running = false;
             rb.velocity = Vector3.zero;
             transform.position = playerPos.position;
 
@@ -63,48 +66,45 @@ public class SticksController : MonoBehaviour
             {
                 transform.Translate(1, 0, 0);
             }
-            GetComponent<Renderer>().enabled = false;
 
+            GetComponent<Renderer>().enabled = false;
         }
     }
 
 
     IEnumerator AttackWait()
     {
-        attack_running = true;
         setState(State.Thrown);
 
-        yield return new WaitForSeconds(0.14f);
-
+        yield return new WaitForSeconds(0.2f);
         setState(State.Recalling);
-
     }
 
 
     void throwStick()
     {
-       Vector3 throwDir = (transform.position - playerPos.position).normalized;
-       rb.AddForce(throwDir *10f, ForceMode.Impulse);
-
+       // throwingPosition = playerPos.position;
+        Vector3 throwDir = (throwDirection - playerPos.position).normalized;
+        rb.AddForce((throwDir *5f), ForceMode.Impulse);
     }
 
     void OnTriggerEnter(Collider col)
     {
         rb.velocity = Vector3.zero;
-
     }
 
     void recallStick()
     {
       rb.velocity = Vector3.zero;
-      Vector3 throwDir = (playerPos.position - transform.position).normalized;
-       rb.AddForce(throwDir * 20f, ForceMode.Impulse);
+      Vector3 throwDir = (playerPos.position - throwDirection).normalized;
+      rb.AddForce((throwDir * 10f), ForceMode.Impulse);
 
-        if (Vector3.Distance(transform.position, playerPos.position) < 2f)
+        if (Vector3.Distance(transform.position, playerPos.position) < 3.0f)
         {
             state = State.WithPlayer;
 
         }
+
     }
 
     // public methods
@@ -134,6 +134,11 @@ public class SticksController : MonoBehaviour
         isSpinning = spin;
     }
 
+    public void setPlayerSpeed(Vector3 speed)
+    {
+        playerSpeed = speed;
+    }
+
     public void Flip()
     {
         faceLeft = !faceLeft;
@@ -154,12 +159,12 @@ public class SticksController : MonoBehaviour
         }
     }
 
-    public void StartSpin()
+
+    public void StartSpin(Vector2 throwDir)
     {
-        if (!attack_running)
-        {
-            StartCoroutine(AttackWait());
-        }
+        throwDirection = mainCamera.ScreenToWorldPoint(new Vector3(throwDir.x, throwDir.y, transform.position.z));
+        throwDirection.z = transform.position.z;
+        StartCoroutine(AttackWait());
     }
 
 }

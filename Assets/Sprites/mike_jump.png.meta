@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 6812f337c5883d54593688920a15b920
+guid: efc9d9986a9430e4994f0577f0c63296
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8949848201629703964
-    second: mike_idle_sticks_0
+      213: 2543937372282420479
+    second: mike_jump_0
   - first:
-      213: -1313064956563083637
-    second: mike_idle_sticks_1
+      213: 8013352213183014556
+    second: mike_jump_1
   - first:
-      213: 2403759586626290836
-    second: mike_idle_sticks_2
+      213: 3749143392905055208
+    second: mike_jump_2
   - first:
-      213: -7029202196732897883
-    second: mike_idle_sticks_3
+      213: 5347357974722515156
+    second: mike_jump_3
+  - first:
+      213: 4265289434532532916
+    second: mike_jump_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,85 +118,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mike_idle_sticks_0
+      name: mike_jump_0
       rect:
         serializedVersion: 2
-        x: 38
+        x: 21
         y: 0
-        width: 38
+        width: 42
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f9ec3658f343c70800000000000000
-      internalID: 8949848201629703964
+      spriteID: ffcfbbdcf81ed4320800000000000000
+      internalID: 2543937372282420479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_idle_sticks_1
+      name: mike_jump_1
       rect:
         serializedVersion: 2
-        x: 140
+        x: 119
         y: 0
-        width: 38
+        width: 42
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8e2b01016e07cde0800000000000000
-      internalID: -1313064956563083637
+      spriteID: c962dde9165253f60800000000000000
+      internalID: 8013352213183014556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mike_idle_sticks_2
+      name: mike_jump_2
       rect:
         serializedVersion: 2
-        x: 247
-        y: 0
-        width: 38
-        height: 100
+        x: 219
+        y: 2
+        width: 42
+        height: 98
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 494cc4ebb9edb5120800000000000000
-      internalID: 2403759586626290836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mike_idle_sticks_3
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 0
-        width: 38
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a5175928d1437e90800000000000000
-      internalID: -7029202196732897883
+      spriteID: 8ebcb125d02a70430800000000000000
+      internalID: 3749143392905055208
       vertices: []
       indices: 
       edges: []
@@ -201,7 +183,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b3e616ecf8d14f4429c5a09126e5a1b1
+    spriteID: 17d2e2b2670f6064c8c8e181ff0c6b59
     internalID: 0
     vertices: []
     indices: 

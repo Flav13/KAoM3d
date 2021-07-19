@@ -39,13 +39,19 @@ public class PlayerController : MonoBehaviour
     float currentColHeight;
     Vector3 currentColCenter;
     Vector2 moveDirection;
+
     Vector2 shootLocation;
+    Vector2 shootLocationMouse;
+
     int currentCharacter;
+    Gamepad gamepad;
 
     // constants 
     float jumpForce = 8f;
     float walkSpeed = 7f;
     int maxHealth = 100;
+    private float fireRate = 0.1f;
+    float nextFire = 0.0f;
     //int attackDamage = 40;
 
     Dictionary<string, int> characterMap = 
@@ -64,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
         sticksController = sticks.GetComponent<SticksController>();
 
+        gamepad = Gamepad.current;
     }
 
     void Update()
@@ -73,13 +80,14 @@ public class PlayerController : MonoBehaviour
 
         float y = rb.velocity.y;
         bool is_grounded = isGrounded();
+        animator.SetBool("is_grounded", is_grounded);
 
 
         if (is_crouching && is_grounded)
         {
            rb.velocity = Vector3.zero;
-           collider.height = 1.8f;
-           collider.center = new Vector3(currentColCenter.x, -0.65f, currentColCenter.z);
+           collider.height = 2.2f;
+           collider.center = new Vector3(currentColCenter.x, -1.0f, currentColCenter.z);
         }
 
         if (!is_crouching)
@@ -88,7 +96,7 @@ public class PlayerController : MonoBehaviour
             collider.height = currentColHeight;
             collider.center = currentColCenter;
         }
-
+    
         if (moveDirection.x > 0 && face_left)
         {
             Flip();
@@ -100,8 +108,15 @@ public class PlayerController : MonoBehaviour
 
         if (is_grounded && is_jumping)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetBool("is_jumping", true);
+            rb.AddForce(Vector3.up * 8f, ForceMode.Impulse);
             is_jumping = false;
+            //  StartCoroutine(jump());     
+
+        }
+        else if (is_grounded)
+        {
+            animator.SetBool("is_jumping", false);
         }
         if (y <= -15 && !hasFallen && !is_grounded)
         {
@@ -116,10 +131,55 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("speed", rb.velocity.magnitude);
-        animator.SetBool("is_attacking", is_attacking);
         animator.SetBool("is_crouching", is_crouching);
+
     }
 
+    void FixedUpdate()
+    {
+        bool is_grounded = isGrounded();
+
+        if (is_attacking && is_grounded && !is_crouching)
+        {
+            Attack();
+        }
+        //sticksController.setPlayerPos(transform);
+    }
+
+    void Attack()
+    {
+        if (currentCharacter == characterMap["Henry"])
+        {
+            if(Time.time >= nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                shootBullet();
+            }
+
+        }
+        else if (currentCharacter == characterMap["Mike"])
+        {
+            if (sticksController.getState() == SticksController.State.WithPlayer && shootingInFront())
+            {
+                StartCoroutine(throwSticks());
+                animator.SetBool("is_attacking", true);
+            }
+            else
+            {
+                is_crouching = false;
+                is_attacking = false;
+            }
+        }
+        else if (currentCharacter == characterMap["Flav"])
+        {
+            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, 3.5f, enemyLayer);
+
+            foreach (Collider enemy in hitEnemies)
+            {
+                enemy.GetComponent<EnemyController>().TakeDamage(10);
+            }
+        }
+    }
     void Move(Vector2 moveDirection, float y)
     {        
         inputVector = new Vector3(moveDirection.x * walkSpeed, y, moveDirection.y * walkSpeed);
@@ -135,53 +195,78 @@ public class PlayerController : MonoBehaviour
     {
         if (currentCharacter == characterMap["Henry"])
         {
-            if (context.started)
-            {
-                GameObject bTransform = Instantiate(bullet, transform.position, Quaternion.identity);           
-                bTransform.GetComponent<BulletController>().Setup(shootLocation);
-            }
-        }
-        else if (currentCharacter == characterMap["Mike"])
-        {
-
             if (context.performed)
             {
-                if (!is_attacking)
-                {
-                    StartCoroutine(throwSticks());
-                   
-                }
                 is_attacking = true;
-
             }
             else if (context.canceled)
             {
                 is_attacking = false;
-               // Destroy(sticks);
             }
         }
-        else if (currentCharacter == characterMap["Flav"])
+        else
         {
             if (context.started)
             {
-                Collider[] hitEnemies = Physics.OverlapSphere(transform.position, 3.5f, enemyLayer);
-
-                foreach (Collider enemy in hitEnemies)
-                {
-                    enemy.GetComponent<EnemyController>().TakeDamage(10);
-                }
+                is_attacking = true;
+            }
+            else if (context.canceled)
+            {
+                is_attacking = false;
             }
         }
+
+    }
+
+    IEnumerator jump()
+    {
+        yield return new WaitForSeconds(0.6f);
+        rb.AddForce(Vector3.up * 0.06f, ForceMode.Impulse);
+        is_jumping = false;
+
     }
 
     IEnumerator throwSticks()
     {
         yield return new WaitForSeconds(0.6f);
-        sticks.GetComponent<Renderer>().enabled = true;
+        sticksController.setPlayerSpeed(rb.velocity);
 
-      //  sticks.SetActive(true);
-        sticksController.StartSpin();
+          if (gamepad.rightStick.IsActuated()) 
+            sticksController.StartSpin(shootLocation);
+          else
+            sticksController.StartSpin(shootLocationMouse);
+        animator.SetBool("is_attacking", false);
+    }
 
+    void shootBullet()
+    {
+        if (shootingInFront())
+        {
+            GameObject bTransform = Instantiate(bullet, transform.position, Quaternion.identity);
+            if (gamepad.rightStick.IsActuated())
+                bTransform.GetComponent<BulletController>().Setup(shootLocation);
+            else
+                bTransform.GetComponent<BulletController>().Setup(shootLocationMouse);
+        }
+    }
+
+    bool shootingInFront()
+    {
+        float maxX = 1609.0f;
+        if (gamepad.rightStick.IsActuated())
+        {
+            if (!face_left)
+                return shootLocation.x > maxX / 2;
+            else
+                return shootLocation.x < maxX / 2;
+        }
+        else
+        {
+            if (!face_left)
+                return shootLocationMouse.x > maxX / 2;
+            else
+                return shootLocationMouse.x < maxX / 2;
+        }
     }
 
     public void onCrouch(InputAction.CallbackContext context)
@@ -192,20 +277,6 @@ public class PlayerController : MonoBehaviour
             is_crouching = false;
     }
 
-    public void onSwitch(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (currentCharacter < 2)
-            {
-                currentCharacter++;
-            }
-            else
-            {
-                currentCharacter = characterMap["Mike"];
-            }
-        }
-    }
 
     public void onJump(InputAction.CallbackContext context)
     {
@@ -215,41 +286,44 @@ public class PlayerController : MonoBehaviour
             is_jumping = false;
     }
 
+
+    public void onMouseAim(InputAction.CallbackContext context)
+    {
+        shootLocationMouse = context.ReadValue<Vector2>();
+
+    }
+
     public void onAim(InputAction.CallbackContext context)
     {
         shootLocation = context.ReadValue<Vector2>();
+
         float maxY = 907.0f;
         float maxX = 1609.0f;
 
-        if (Gamepad.current != null)
+        if (shootLocation.x < 0)
         {
-
-            if (shootLocation.x < 0)
-            {
-                shootLocation.x = shootLocation.x * maxX;
-            }
-            else if (shootLocation.x == 0)
-            {
-                shootLocation.x = maxX / 2;
-            }
-            else
-            {
-                shootLocation.x = shootLocation.x * maxX;
-            }
-            if (shootLocation.y < 0)
-            {
-                shootLocation.y = shootLocation.y * maxY;
-            }
-            else if (shootLocation.y == 0)
-            {
-                shootLocation.y = maxY;
-            }
-            else
-            {
-                shootLocation.y = shootLocation.y * maxY;
-            }
+            shootLocation.x = shootLocation.x * maxX;
         }
-
+        else if (shootLocation.x == 0)
+        {
+            shootLocation.x = maxX / 2;
+        }
+        else
+        {
+            shootLocation.x = shootLocation.x * maxX;
+        }
+        if (shootLocation.y < 0)
+        {
+            shootLocation.y = shootLocation.y * maxY;
+        }
+        else if (shootLocation.y == 0)
+        {
+            shootLocation.y = maxY;
+        }
+        else
+        {
+            shootLocation.y = shootLocation.y * maxY;
+        }
     }
 
     void Flip()
@@ -260,13 +334,17 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
 
         sticksController.Flip();
-
-      
     }
 
     public bool isGrounded()
     {
         return Physics.CheckCapsule(collider.bounds.center, new Vector3(collider.bounds.center.x, collider.bounds.min.y, collider.bounds.center.z), collider.radius * .9f, groundLayer);
+    }
+
+    IEnumerator Remove()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     public void TakeDamage(int amount)
@@ -279,9 +357,8 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             if (livesLeft == 1) {
-                is_dead = true;
-                Debug.Log("mikes ded m8");
-                //animator.SetBool("is_dead", is_dead);
+                animator.SetBool("is_dead", true);
+                StartCoroutine(Remove());
             }
             else if (livesLeft > 1)
             {
