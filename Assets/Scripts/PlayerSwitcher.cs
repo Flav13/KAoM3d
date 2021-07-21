@@ -8,6 +8,8 @@ public class PlayerSwitcher : MonoBehaviour
 {
 
 	public GameObject mike, flav;
+	PlayerController mikeController;
+	PlayerController flavController;
 
 	int whichAvatarIsOn = 1;
 
@@ -16,6 +18,12 @@ public class PlayerSwitcher : MonoBehaviour
 	{
 		mike.gameObject.SetActive(true);
 		flav.gameObject.SetActive(false);
+	}
+
+	void Awake()
+    {
+		mikeController = mike.GetComponent<PlayerController>();
+		flavController = flav.GetComponent<PlayerController>();
 	}
 
 	public void SwitchCharacter(InputAction.CallbackContext context)
@@ -33,6 +41,7 @@ public class PlayerSwitcher : MonoBehaviour
 
 					// disable the first one and anable the second one
 					mike.gameObject.SetActive(false);
+					flavController.switchCharacter();
 					flav.gameObject.SetActive(true);
 					break;
 
@@ -44,6 +53,7 @@ public class PlayerSwitcher : MonoBehaviour
 
 					// disable the second one and anable the first one
 					mike.gameObject.SetActive(true);
+					mikeController.switchCharacter();
 					flav.gameObject.SetActive(false);
 					break;
 			}

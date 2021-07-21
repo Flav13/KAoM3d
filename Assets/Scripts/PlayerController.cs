@@ -20,9 +20,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
 
     // weapons
-    public GameObject sticks;
     public GameObject bullet;
-    SticksController sticksController;
 
     //bools
     public bool face_left = false;
@@ -40,11 +38,11 @@ public class PlayerController : MonoBehaviour
     Vector3 currentColCenter;
     Vector2 moveDirection;
 
-    Vector2 shootLocation;
-    Vector2 shootLocationMouse;
+    public Vector2 shootLocation;
+    public Vector2 shootLocationMouse;
 
-    int currentCharacter;
-    Gamepad gamepad;
+    public int currentCharacter;
+    public Gamepad gamepad;
 
     // constants 
     float jumpForce = 8f;
@@ -54,21 +52,18 @@ public class PlayerController : MonoBehaviour
     float nextFire = 0.0f;
     //int attackDamage = 40;
 
-    Dictionary<string, int> characterMap = 
+    public Dictionary<string, int> characterMap = 
         new Dictionary<string, int>()
-        { {"Mike", 0}, {"Henry", 1}, {"Flav", 2} };
+        { {"Mike", 0}, {"Flav", 1}, {"Henry", 2} };
 
-    void Start()
+    public virtual void Start()
     {
         Physics.IgnoreLayerCollision(3, 7);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth();
-        currentCharacter = characterMap["Mike"];
 
         currentColHeight = collider.height;
         currentColCenter = collider.center;
-
-        sticksController = sticks.GetComponent<SticksController>();
 
         gamepad = Gamepad.current;
     }
@@ -146,8 +141,9 @@ public class PlayerController : MonoBehaviour
         //sticksController.setPlayerPos(transform);
     }
 
-    void Attack()
-    {
+    public virtual void Attack() { }
+
+        /*
         if (currentCharacter == characterMap["Henry"])
         {
             if(Time.time >= nextFire)
@@ -157,29 +153,8 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        else if (currentCharacter == characterMap["Mike"])
-        {
-            if (sticksController.getState() == SticksController.State.WithPlayer && shootingInFront())
-            {
-                StartCoroutine(throwSticks());
-                animator.SetBool("is_attacking", true);
-            }
-            else
-            {
-                is_crouching = false;
-                is_attacking = false;
-            }
-        }
-        else if (currentCharacter == characterMap["Flav"])
-        {
-            Collider[] hitEnemies = Physics.OverlapSphere(transform.position, 3.5f, enemyLayer);
-
-            foreach (Collider enemy in hitEnemies)
-            {
-                enemy.GetComponent<EnemyController>().TakeDamage(10);
-            }
-        }
-    }
+        */  
+    
     void Move(Vector2 moveDirection, float y)
     {        
         inputVector = new Vector3(moveDirection.x * walkSpeed, y, moveDirection.y * walkSpeed);
@@ -226,17 +201,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    IEnumerator throwSticks()
-    {
-        yield return new WaitForSeconds(0.6f);
-        sticksController.setPlayerSpeed(rb.velocity);
-
-          if (gamepad.rightStick.IsActuated()) 
-            sticksController.StartSpin(shootLocation);
-          else
-            sticksController.StartSpin(shootLocationMouse);
-        animator.SetBool("is_attacking", false);
-    }
 
     void shootBullet()
     {
@@ -250,7 +214,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    bool shootingInFront()
+    public bool shootingInFront()
     {
         float maxX = 1609.0f;
         if (gamepad.rightStick.IsActuated())
@@ -326,19 +290,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Flip()
+    public virtual void Flip()
     {
         face_left = !face_left;
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
-
-        sticksController.Flip();
     }
 
     public bool isGrounded()
     {
         return Physics.CheckCapsule(collider.bounds.center, new Vector3(collider.bounds.center.x, collider.bounds.min.y, collider.bounds.center.z), collider.radius * .9f, groundLayer);
+    }
+
+    public void switchCharacter()
+    {
+        currentCharacter++;
     }
 
     IEnumerator Remove()

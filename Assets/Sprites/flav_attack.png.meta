@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: -2812430880923834577
     second: flav_attack_4
+  - first:
+      213: -2419875170511056328
+    second: flav_attack_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,10 +121,10 @@ TextureImporter:
       name: flav_attack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 153
-        height: 91
+        x: 65
+        y: 5
+        width: 50
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,9 +142,9 @@ TextureImporter:
       name: flav_attack_1
       rect:
         serializedVersion: 2
-        x: 155
-        y: 0
-        width: 145
+        x: 205
+        y: 5
+        width: 50
         height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -160,9 +163,9 @@ TextureImporter:
       name: flav_attack_2
       rect:
         serializedVersion: 2
-        x: 303
-        y: 0
-        width: 163
+        x: 368
+        y: 6
+        width: 50
         height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -178,12 +181,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flav_attack_4
+      name: flav_attack_3
       rect:
         serializedVersion: 2
-        x: 468
-        y: 0
-        width: 172
+        x: 548
+        y: 5
+        width: 50
         height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -192,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f272233c30d38f8d0800000000000000
-      internalID: -2812430880923834577
+      spriteID: 83296ec7a50ea6ed0800000000000000
+      internalID: -2419875170511056328
       vertices: []
       indices: 
       edges: []
