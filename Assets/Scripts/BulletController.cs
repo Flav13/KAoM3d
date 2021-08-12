@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    Vector3 shootDir;
-    Camera mainCamera;
+    Vector2 shootDirection;
 
     public Rigidbody rb;
-    float moveSpeed = 0.1f;
+    float shootSpeed = 20f;
 
-
-    public void Setup(Vector2 shootLocation)
-    {
-        mainCamera = GameObject.FindObjectOfType<Camera>();
-
-        Vector3 shootDirection = mainCamera.ScreenToWorldPoint(new Vector3(shootLocation.x, shootLocation.y, transform.position.z));
-        shootDirection.z = transform.position.z;
-
-        this.shootDir = (shootDirection - transform.position).normalized;
-        Destroy(gameObject, 5f);
-    }
 
     void Update()
     {
-        rb.AddForce(shootDir* moveSpeed, ForceMode.Impulse);
+
+        rb.velocity = shootDirection * shootSpeed;
 
       //  float hitDetectionSize = 3f;
        // Enemy enemy = enemy.GetClosest(transform.position, hitDetectiomSize);
@@ -33,6 +22,11 @@ public class BulletController : MonoBehaviour
      //       enemy.TakeDamage(10);
      //       Destroy(gameObject);
      //   }
+    }
+
+    public void setDirection(Vector2 shootDir)
+    {
+        shootDirection = shootDir;
     }
 
     public void Remove()

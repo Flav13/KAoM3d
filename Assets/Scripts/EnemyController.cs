@@ -21,9 +21,12 @@ public class EnemyController : MonoBehaviour
     public bool is_dead = false;
     public bool is_hurt = false;
 
+    Transform flav;
+    Transform mike;
+    Transform Player;
+
 
     int currentHealth;
-    GameObject Player;
 
     int speed = 4;
     float jump_force = 8f;
@@ -35,32 +38,50 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.Find("character");
         currentHealth = maxHealth;
         Physics.IgnoreLayerCollision(7, 3);
 
     }
 
+    Transform GetActivePlayer()
+    {
+        GameObject parentClass = GameObject.Find("Player");
+        mike = parentClass.transform.Find("mike");
+        flav = parentClass.transform.Find("flav");
+
+        if (mike.GetComponent<PlayerController>().IsActive())
+        {
+            return mike;
+        }
+        else 
+        {
+            return flav;
+        }
+
+    }
+
     void Update()
     {
+        Player = GetActivePlayer();
+
         is_attacking = false;
 
-        if (!IsFacingRight(transform, Player.transform) && !face_left)
+        if (!IsFacingRight(transform, Player) && !face_left)
         {
             Flip();
         }
-        else if (IsFacingRight(transform, Player.transform) && face_left)
+        else if (IsFacingRight(transform, Player) && face_left)
         {
             Flip();
         }
-        if (Vector3.Distance(transform.position, Player.transform.position) <= MinDist && !is_dead && !attack_running)
+        if (Vector3.Distance(transform.position, Player.position) <= MinDist && !is_dead && !attack_running)
         {
             is_attacking = true;
             StartCoroutine(AttackWait());
         }
         else if (!is_dead && !attack_running)
         {
-            Vector3 moveDir = (Player.transform.position - transform.position).normalized;
+            Vector3 moveDir = (Player.position - transform.position).normalized;
             var step = speed * Time.deltaTime;
             transform.position += moveDir * step;
         }
@@ -97,6 +118,12 @@ public class EnemyController : MonoBehaviour
             this.TakeDamage(5);
             col.gameObject.GetComponent<BulletController>().Remove();
         }
+        else if (col.gameObject.name.Contains("Wave"))
+        {
+          //  this.TakeDamage(10);
+          //  col.gameObject.GetComponent<WaveController>().Remove();
+        }
+        Debug.Log(currentHealth);
     }
 
     void OnCollisionEnter(Collision collision)

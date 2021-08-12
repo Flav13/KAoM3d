@@ -16,10 +16,9 @@ public class SticksController : MonoBehaviour
     // bools
     bool faceLeft = false;
 
-    Vector3 throwDirection;
     Camera mainCamera;
     Vector3 playerSpeed;
-    Vector3 throwingPosition;
+    Vector2 throwDirection;
 
     public State state;
     public enum State 
@@ -75,17 +74,13 @@ public class SticksController : MonoBehaviour
     IEnumerator AttackWait()
     {
         setState(State.Thrown);
-
         yield return new WaitForSeconds(0.2f);
         setState(State.Recalling);
     }
 
-
     void throwStick()
     {
-       // throwingPosition = playerPos.position;
-        Vector3 throwDir = (throwDirection - playerPos.position).normalized;
-        rb.AddForce((throwDir *5f), ForceMode.Impulse);
+        rb.velocity = throwDirection * 30f;
     }
 
     void OnTriggerEnter(Collider col)
@@ -96,7 +91,7 @@ public class SticksController : MonoBehaviour
     void recallStick()
     {
       rb.velocity = Vector3.zero;
-      Vector3 throwDir = (playerPos.position - throwDirection).normalized;
+      Vector3 throwDir = (playerPos.position - transform.position).normalized;
       rb.AddForce((throwDir * 10f), ForceMode.Impulse);
 
         if (Vector3.Distance(transform.position, playerPos.position) < 3.0f)
@@ -104,11 +99,9 @@ public class SticksController : MonoBehaviour
             state = State.WithPlayer;
 
         }
-
     }
 
     // public methods
-
     public void setState(State newState)
     {
         state = newState;
@@ -139,6 +132,12 @@ public class SticksController : MonoBehaviour
         playerSpeed = speed;
     }
 
+    public void StartSpin(Vector2 throwDir)
+    {
+        throwDirection = throwDir;
+        StartCoroutine(AttackWait());
+    }
+
     public void Flip()
     {
         faceLeft = !faceLeft;
@@ -147,25 +146,7 @@ public class SticksController : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;
-
-            if (faceLeft)
-            {
-                transform.Translate(-1f, 0, 0);
-            }
-            else
-            {
-                transform.Translate(1f, 0, 0);
-            }
         }
     }
-
-
-    public void StartSpin(Vector2 throwDir)
-    {
-        throwDirection = mainCamera.ScreenToWorldPoint(new Vector3(throwDir.x, throwDir.y, transform.position.z));
-        throwDirection.z = transform.position.z;
-        StartCoroutine(AttackWait());
-    }
-
 }
 

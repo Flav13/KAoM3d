@@ -1,0 +1,7 @@
+Library/ArtifactDB
+Library/Artifacts
+Library/ShaderCache
+Library/StateCache
+Library/SourceAssetDB
+Temp/
+Logs/

@@ -25,10 +25,8 @@ public class MikeController : PlayerController
         yield return new WaitForSeconds(0.6f);
         sticksController.setPlayerSpeed(rb.velocity);
 
-        if (gamepad.rightStick.IsActuated())
-            sticksController.StartSpin(shootLocation);
-        else
-            sticksController.StartSpin(shootLocationMouse);
+        sticksController.StartSpin(getShootDirection());
+
         animator.SetBool("is_attacking", false);
     }
 
@@ -41,7 +39,7 @@ public class MikeController : PlayerController
 
     public override void Attack()
     {
-        if (sticksController.getState() == SticksController.State.WithPlayer && shootingInFront())
+        if (sticksController.getState() == SticksController.State.WithPlayer)
         {
             StartCoroutine(throwSticks());
             animator.SetBool("is_attacking", true);
@@ -52,5 +50,4 @@ public class MikeController : PlayerController
             is_attacking = false;
         }
     }
-
 }

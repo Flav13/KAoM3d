@@ -51,25 +51,17 @@ public class @CharInputController : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""AimPosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""75bc69ee-05dd-4578-b413-f5cc81218554"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""AimPositionMouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""76c6cc25-006b-4a05-a9c9-c1b9dc4d65d9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Switch"",
                     ""type"": ""Button"",
                     ""id"": ""7e3bd0b7-cb88-4d39-9bca-17c86fd3df72"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Lock"",
+                    ""type"": ""Button"",
+                    ""id"": ""36e2067e-37f2-4045-add9-1e44f95b603a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -244,7 +236,7 @@ public class @CharInputController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2a299ea4-873e-4140-a95f-8b1e702facc6"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -288,7 +280,7 @@ public class @CharInputController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""14d02bc3-99ef-47e8-bb6b-d35db8864bd5"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -304,28 +296,6 @@ public class @CharInputController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""879f8274-7261-4be4-a27b-593a96d5101b"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AimPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b2ce8b22-bb6d-4343-b9cc-d8bc957cf786"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AimPositionMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -350,6 +320,17 @@ public class @CharInputController : IInputActionCollection, IDisposable
                     ""action"": ""Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""148c0612-e6ca-4b4e-bcc5-f971f0753d5c"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -362,9 +343,8 @@ public class @CharInputController : IInputActionCollection, IDisposable
         m_PlayerInput_Attack = m_PlayerInput.FindAction("Attack", throwIfNotFound: true);
         m_PlayerInput_Jump = m_PlayerInput.FindAction("Jump", throwIfNotFound: true);
         m_PlayerInput_Crouch = m_PlayerInput.FindAction("Crouch", throwIfNotFound: true);
-        m_PlayerInput_AimPosition = m_PlayerInput.FindAction("AimPosition", throwIfNotFound: true);
-        m_PlayerInput_AimPositionMouse = m_PlayerInput.FindAction("AimPositionMouse", throwIfNotFound: true);
         m_PlayerInput_Switch = m_PlayerInput.FindAction("Switch", throwIfNotFound: true);
+        m_PlayerInput_Lock = m_PlayerInput.FindAction("Lock", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -418,9 +398,8 @@ public class @CharInputController : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInput_Attack;
     private readonly InputAction m_PlayerInput_Jump;
     private readonly InputAction m_PlayerInput_Crouch;
-    private readonly InputAction m_PlayerInput_AimPosition;
-    private readonly InputAction m_PlayerInput_AimPositionMouse;
     private readonly InputAction m_PlayerInput_Switch;
+    private readonly InputAction m_PlayerInput_Lock;
     public struct PlayerInputActions
     {
         private @CharInputController m_Wrapper;
@@ -429,9 +408,8 @@ public class @CharInputController : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerInput_Attack;
         public InputAction @Jump => m_Wrapper.m_PlayerInput_Jump;
         public InputAction @Crouch => m_Wrapper.m_PlayerInput_Crouch;
-        public InputAction @AimPosition => m_Wrapper.m_PlayerInput_AimPosition;
-        public InputAction @AimPositionMouse => m_Wrapper.m_PlayerInput_AimPositionMouse;
         public InputAction @Switch => m_Wrapper.m_PlayerInput_Switch;
+        public InputAction @Lock => m_Wrapper.m_PlayerInput_Lock;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -453,15 +431,12 @@ public class @CharInputController : IInputActionCollection, IDisposable
                 @Crouch.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnCrouch;
-                @AimPosition.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPosition;
-                @AimPosition.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPosition;
-                @AimPosition.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPosition;
-                @AimPositionMouse.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPositionMouse;
-                @AimPositionMouse.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPositionMouse;
-                @AimPositionMouse.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAimPositionMouse;
                 @Switch.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnSwitch;
                 @Switch.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnSwitch;
                 @Switch.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnSwitch;
+                @Lock.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnLock;
+                @Lock.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnLock;
+                @Lock.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnLock;
             }
             m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -478,15 +453,12 @@ public class @CharInputController : IInputActionCollection, IDisposable
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
-                @AimPosition.started += instance.OnAimPosition;
-                @AimPosition.performed += instance.OnAimPosition;
-                @AimPosition.canceled += instance.OnAimPosition;
-                @AimPositionMouse.started += instance.OnAimPositionMouse;
-                @AimPositionMouse.performed += instance.OnAimPositionMouse;
-                @AimPositionMouse.canceled += instance.OnAimPositionMouse;
                 @Switch.started += instance.OnSwitch;
                 @Switch.performed += instance.OnSwitch;
                 @Switch.canceled += instance.OnSwitch;
+                @Lock.started += instance.OnLock;
+                @Lock.performed += instance.OnLock;
+                @Lock.canceled += instance.OnLock;
             }
         }
     }
@@ -497,8 +469,7 @@ public class @CharInputController : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
-        void OnAimPosition(InputAction.CallbackContext context);
-        void OnAimPositionMouse(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnLock(InputAction.CallbackContext context);
     }
 }

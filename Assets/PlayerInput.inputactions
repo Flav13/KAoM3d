@@ -38,25 +38,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "AimPosition",
-                    "type": "Value",
-                    "id": "75bc69ee-05dd-4578-b413-f5cc81218554",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "AimPositionMouse",
-                    "type": "Value",
-                    "id": "76c6cc25-006b-4a05-a9c9-c1b9dc4d65d9",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Switch",
                     "type": "Button",
                     "id": "7e3bd0b7-cb88-4d39-9bca-17c86fd3df72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Lock",
+                    "type": "Button",
+                    "id": "36e2067e-37f2-4045-add9-1e44f95b603a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -231,7 +223,7 @@
                 {
                     "name": "",
                     "id": "2a299ea4-873e-4140-a95f-8b1e702facc6",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -275,7 +267,7 @@
                 {
                     "name": "",
                     "id": "14d02bc3-99ef-47e8-bb6b-d35db8864bd5",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -291,28 +283,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "879f8274-7261-4be4-a27b-593a96d5101b",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AimPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b2ce8b22-bb6d-4343-b9cc-d8bc957cf786",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AimPositionMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -335,6 +305,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "148c0612-e6ca-4b4e-bcc5-f971f0753d5c",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

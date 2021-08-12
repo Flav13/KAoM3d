@@ -19,9 +19,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
 
-    // weapons
-    public GameObject bullet;
-
     //bools
     public bool face_left = false;
     public bool is_attacking = false;
@@ -29,18 +26,17 @@ public class PlayerController : MonoBehaviour
     public bool is_dead = false;
     public bool is_hurt = false;
     public bool is_jumping = false;
+    public bool is_locked = false;
 
     bool hasFallen = false;
+    bool is_active = false;
 
     // vars
     int currentHealth;
     float currentColHeight;
     Vector3 currentColCenter;
-    Vector2 moveDirection;
 
-    public Vector2 shootLocation;
-    public Vector2 shootLocationMouse;
-
+    public Vector2 moveDirection;
     public int currentCharacter;
     public Gamepad gamepad;
 
@@ -48,8 +44,7 @@ public class PlayerController : MonoBehaviour
     float jumpForce = 8f;
     float walkSpeed = 7f;
     int maxHealth = 100;
-    private float fireRate = 0.1f;
-    float nextFire = 0.0f;
+
     //int attackDamage = 40;
 
     public Dictionary<string, int> characterMap = 
@@ -85,7 +80,12 @@ public class PlayerController : MonoBehaviour
            collider.center = new Vector3(currentColCenter.x, -1.0f, currentColCenter.z);
         }
 
-        if (!is_crouching)
+        if (is_locked && is_grounded && !is_jumping)
+        {
+            rb.velocity = Vector3.zero;
+        }
+
+        if (!is_crouching && !is_locked)
         {
             Move(moveDirection, y);
             collider.height = currentColHeight;
@@ -127,7 +127,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("speed", rb.velocity.magnitude);
         animator.SetBool("is_crouching", is_crouching);
-
     }
 
     void FixedUpdate()
@@ -143,17 +142,6 @@ public class PlayerController : MonoBehaviour
 
     public virtual void Attack() { }
 
-        /*
-        if (currentCharacter == characterMap["Henry"])
-        {
-            if(Time.time >= nextFire)
-            {
-                nextFire = Time.time + fireRate;
-                shootBullet();
-            }
-
-        }
-        */  
     
     void Move(Vector2 moveDirection, float y)
     {        
@@ -166,9 +154,29 @@ public class PlayerController : MonoBehaviour
         moveDirection = context.ReadValue<Vector2>();
     }
 
+    public bool IsActive()
+    {
+        return is_active;
+    }
+
+    public void MakeActive()
+    {
+        is_active = true;
+    }
+
+    public void MakeInactive()
+    {
+        is_active = false;
+    }
+
+    public void ResetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
     public void onAttack(InputAction.CallbackContext context)
     {
-        if (currentCharacter == characterMap["Henry"])
+        if (currentCharacter == characterMap["Henry"] || currentCharacter == characterMap["Flav"])
         {
             if (context.performed)
             {
@@ -190,7 +198,6 @@ public class PlayerController : MonoBehaviour
                 is_attacking = false;
             }
         }
-
     }
 
     IEnumerator jump()
@@ -198,40 +205,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         rb.AddForce(Vector3.up * 0.06f, ForceMode.Impulse);
         is_jumping = false;
-
     }
 
-
-    void shootBullet()
-    {
-        if (shootingInFront())
-        {
-            GameObject bTransform = Instantiate(bullet, transform.position, Quaternion.identity);
-            if (gamepad.rightStick.IsActuated())
-                bTransform.GetComponent<BulletController>().Setup(shootLocation);
-            else
-                bTransform.GetComponent<BulletController>().Setup(shootLocationMouse);
-        }
-    }
-
-    public bool shootingInFront()
-    {
-        float maxX = 1609.0f;
-        if (gamepad.rightStick.IsActuated())
-        {
-            if (!face_left)
-                return shootLocation.x > maxX / 2;
-            else
-                return shootLocation.x < maxX / 2;
-        }
-        else
-        {
-            if (!face_left)
-                return shootLocationMouse.x > maxX / 2;
-            else
-                return shootLocationMouse.x < maxX / 2;
-        }
-    }
 
     public void onCrouch(InputAction.CallbackContext context)
     {
@@ -250,44 +225,12 @@ public class PlayerController : MonoBehaviour
             is_jumping = false;
     }
 
-
-    public void onMouseAim(InputAction.CallbackContext context)
+    public void onLock(InputAction.CallbackContext context)
     {
-        shootLocationMouse = context.ReadValue<Vector2>();
-
-    }
-
-    public void onAim(InputAction.CallbackContext context)
-    {
-        shootLocation = context.ReadValue<Vector2>();
-
-        float maxY = 907.0f;
-        float maxX = 1609.0f;
-
-        if (shootLocation.x < 0)
-        {
-            shootLocation.x = shootLocation.x * maxX;
-        }
-        else if (shootLocation.x == 0)
-        {
-            shootLocation.x = maxX / 2;
-        }
-        else
-        {
-            shootLocation.x = shootLocation.x * maxX;
-        }
-        if (shootLocation.y < 0)
-        {
-            shootLocation.y = shootLocation.y * maxY;
-        }
-        else if (shootLocation.y == 0)
-        {
-            shootLocation.y = maxY;
-        }
-        else
-        {
-            shootLocation.y = shootLocation.y * maxY;
-        }
+        if (context.performed)
+            is_locked = true;
+        if (context.canceled)
+            is_locked = false;     
     }
 
     public virtual void Flip()
@@ -306,6 +249,35 @@ public class PlayerController : MonoBehaviour
     public void switchCharacter()
     {
         currentCharacter++;
+    }
+
+    public Vector2 getShootDirection()
+    {
+        if (moveDirection.y == 1.0f && is_locked)
+        {
+            return transform.up;
+
+        } else if (moveDirection.y == -1.0f && is_locked)
+        {
+            return transform.up * -1.0f;
+        }
+        else if (moveDirection.x == 1.0f)
+        {
+            return transform.right;
+        }
+        else if (moveDirection.x == -1.0f)
+        {
+            return transform.right * -1.0f;
+        }
+        else if ((moveDirection.x > 0 || moveDirection.x < 0) && is_locked) 
+        {
+            return moveDirection;
+        }
+        else if (face_left)
+        {
+            return transform.right * -1.0f;
+        }
+        return transform.right;  
     }
 
     IEnumerator Remove()
